@@ -21,15 +21,16 @@ import static javaapplication1.Principal.Contador;
 public class proceso extends Thread {
 
     int inicio, fin;
-    int valor;
+    int decimales;
     String msg;
     BigDecimal TWO = new BigDecimal("2");
     BigDecimal sumas = new BigDecimal(BigInteger.ZERO, MathContext.UNLIMITED);
     
-    public proceso(String msg, int inicio, int fin) {
+    public proceso(String msg, int inicio, int fin, int decimales) {
         super(msg);
         this.inicio = inicio;
         this.fin = fin;
+        this.decimales = decimales;
 
     }
     
@@ -43,7 +44,8 @@ public class proceso extends Thread {
 //        while (i.longValue() <= fin) {
             while(i.compareTo(BigDecimal.valueOf(fin))<=0){
 //                Contador+=1;
-            sumas = sumas.add(BigDecimal.ONE.negate().pow(i.intValue()).divide((i.multiply(TWO).add(BigDecimal.ONE)), 100, BigDecimal.ROUND_HALF_EVEN));
+//            sumas = sumas.add(BigDecimal.ONE.negate().pow(i.intValue()).divide((i.multiply(TWO).add(BigDecimal.ONE)), 100, BigDecimal.ROUND_HALF_EVEN));
+            sumas = sumas.add(BigDecimal.ONE.negate().pow(i.intValue()).divide((i.multiply(TWO).add(BigDecimal.ONE)), decimales, BigDecimal.ROUND_HALF_EVEN));
             i = i.add(BigDecimal.ONE);
 //                System.out.println(Thread.currentThread().getName()+" _ "+pi.multiply(BigDecimal.valueOf(4)).toPlainString());
     
