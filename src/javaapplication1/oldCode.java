@@ -74,3 +74,13 @@ pi = pi.multiply(BigDecimal.valueOf(4));
     
 
 }
+/*Util multihilo
+https://gomezh.dev/2015/08/24/java-pi-threads
+for (int i = 0; i < CPU_CORES; i++) {
+            long start = i * NUM_RECTS / CPU_CORES;
+            long end = (i + 1) * NUM_RECTS / CPU_CORES;
+
+            threads[i] = new PIThread(start, end, width);
+            threads[i].start(); // Start computation
+        }
+*/
